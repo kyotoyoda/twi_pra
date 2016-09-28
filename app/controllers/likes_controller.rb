@@ -10,7 +10,7 @@ class LikesController < ApplicationController
 
  def unlike
    tweet = Tweet.find(params[:tweet_id])
-   like = current_user.likes.build(tweet_id: tweet.id)
+   like = current_user.likes.find_by(tweet_id: tweet.id)
    like.destroy
    redirect_to tweet
  end
