@@ -10,8 +10,8 @@ class TweetsController < ApplicationController
   # GET /tweets/1
   # GET /tweets/1.json
   def show
-    @user = User.find(params[:id])
-    @tweets = @user.tweets
+  #  @user = User.find(params[:id])
+  #  @tweets = @user.tweets
   end
 
   # GET /tweets/new
@@ -29,10 +29,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
 
-
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_path, notice: 'Tweet was successfully created.' }
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :new }

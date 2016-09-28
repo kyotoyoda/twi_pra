@@ -12,7 +12,8 @@
 <header>
   <nav>
     <% if user_signed_in? %>
-     Logged in as <strong><%= current_user.email %></strong>.
+     Logged in as <strong><%= current_user.email %></strong></br>
+     user_id:<strong><%= current_user.id %></strong></br>
      <%= link_to "プロフィール変更", edit_user_registration_path %> |
      <%= link_to "ログアウト", sign_out_path %>
      <% else %>
@@ -22,8 +23,6 @@
    </nav>
  </header>
 
- <p class = "notice"><%= notice %></p>
- <p class = "alert"><%= alert %></p>
 
     <%= yield %>
   </body>
