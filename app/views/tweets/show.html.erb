@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>tweet_id:</strong>
+  <%= @tweet.id %>
+</p>
+
 
 <p>
   <strong>Content:</strong>
@@ -9,6 +13,12 @@
   <strong>User:</strong>
   <%= @tweet.user_id %>
 </p>
+
+<% if current_user.likes.find_by(tweet_id: @tweet.id) %>
+<%= link_to'いいねを取り消す',unlike_path(@tweet.id),method: :delete %></br>
+<% else %>
+<%= link_to 'いいね', like_path(@tweet.id),method: :post %> </br>
+<% end %>
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>

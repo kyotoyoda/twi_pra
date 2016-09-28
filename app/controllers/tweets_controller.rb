@@ -9,10 +9,10 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1
   # GET /tweets/1.json
-  #def show
-  #  @user = User.find(params[:id])
-  #  @tweets = @user.tweets
-#  end
+  def show
+    @user = User.find(params[:id])
+    @tweets = @user.tweets
+ end
 
   # GET /tweets/new
   def new

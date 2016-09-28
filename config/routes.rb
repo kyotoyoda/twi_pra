@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
 root to: "home#index"
 
-post 'like/:note_id' => 'likes#like', as:'like'
-delete 'unlike/:note_id' => 'likes#unlike', as:'unlike'
+post 'like/:tweet_id' => 'likes#like', as:'like'
+delete 'unlike/:tweet_id' => 'likes#unlike', as:'unlike'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
