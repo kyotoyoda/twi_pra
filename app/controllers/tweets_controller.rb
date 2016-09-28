@@ -9,10 +9,10 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1
   # GET /tweets/1.json
-  def show
+  #def show
   #  @user = User.find(params[:id])
   #  @tweets = @user.tweets
-  end
+#  end
 
   # GET /tweets/new
   def new
@@ -28,6 +28,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
+    @tweet.user_name = current_user.name
 
     respond_to do |format|
       if @tweet.save
