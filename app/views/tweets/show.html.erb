@@ -16,7 +16,7 @@
 
 <p>
  <strong>いいね数:</strong>
- <%= @tweet.likes.count %> 
+ <%= @tweet.likes.count %>
 </p>
 
 <% if current_user.likes.find_by(tweet_id: @tweet.id) %>

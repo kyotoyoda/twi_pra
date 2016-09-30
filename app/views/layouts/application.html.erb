@@ -75,6 +75,18 @@
 </li>
 </ul>
 </div><!--/.well -->
+
+<%= form_for(@tweet) do |f| %>
+<div class="field">
+<%= f.label :tweet %></br>
+<%= f.text_area :content %>
+</div>
+
+<div class="actions">
+<%= f.submit %>
+
+</div>
+<% end %>
 </div><!--/span-->
 </div><!--/row-->
   <% end %>
