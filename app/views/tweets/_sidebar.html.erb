@@ -1,11 +1,13 @@
 
-
 <% if user_signed_in? %>
 <div class = "row">
-<div class="col-lg-3">
+<div class="col-md-3">
   <div class="panel panel-default">
       <div class="panel-heading">
-          User_info
+
+        <%= link_to "user", @user %>
+
+        <!--  <a href="/user/#{note.id}"><%= current_user.name %></a> -->
       </div>
       <!-- 敢えてbodyを作らないことで、メニューを詰める -->
       <!-- <div class="panel-body"> -->
@@ -28,7 +30,6 @@
 <% end %>
 </li>
 </ul>
-</div>
 </div>
 </div>
 <% end %>
