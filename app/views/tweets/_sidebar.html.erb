@@ -5,18 +5,18 @@
   <div class="panel panel-default">
       <div class="panel-heading">
 
-        <%= link_to "user", @user %>
+        <%= link_to "マイページへ", @user %>
 
         <!--  <a href="/user/#{note.id}"><%= current_user.name %></a> -->
       </div>
       <!-- 敢えてbodyを作らないことで、メニューを詰める -->
       <!-- <div class="panel-body"> -->
       <ul class="nav nav-pills nav-stacked">
-<li><p>Logged in as <strong><%= current_user.email %></strong></p></li>
-<li><p>user_id:<strong><%= current_user.id %></strong></p></li>
-<li><p>user_name:<strong><%= current_user.name %></strong></p></li>
+        <li><p>user_name:<strong><%= current_user.name %></strong></p></li>
+        <li><p>Logged in as <strong><%= current_user.email %></strong></p></li>
+        <li><p>user_id:<strong><%= current_user.id %></strong></p></li>
 
-
+</br>
 <li>
 <%= form_for(@tweet) do |f| %>
 <div class="field">
