@@ -1,3 +1,6 @@
+<%= render 'sidebar', tweet: @tweet %>
+
+
 <p>
   <strong>tweet_id:</strong>
   <%= @tweet.id %>
@@ -25,5 +28,5 @@
 <%= link_to 'いいね', like_path(@tweet.id),method: :post %> </br>
 <% end %>
 
-<%= link_to 'Edit', edit_tweet_path(@tweet) %> |
+<!--<%= link_to 'Edit', edit_tweet_path(@tweet) %> | -->
 <%= link_to 'Back', tweets_path %>

@@ -1,3 +1,39 @@
+
+
+<% if user_signed_in? %>
+<div class = "row">
+<div class="col-md-3">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+          User_info
+      </div>
+      <!-- 敢えてbodyを作らないことで、メニューを詰める -->
+      <!-- <div class="panel-body"> -->
+      <ul class="nav nav-pills nav-stacked">
+<li><p>Logged in as <strong><%= current_user.email %></strong></p></li>
+<li><p>user_id:<strong><%= current_user.id %></strong></p></li>
+<li><p>user_name:<strong><%= current_user.name %></strong></p></li>
+
+
+<li>
+<%= form_for(@tweet) do |f| %>
+<div class="field">
+<%= f.label :tweet %></br>
+<%= f.text_area :content %>
+</div>
+
+<div class="actions">
+<%= f.submit %>
+</div>
+<% end %>
+</li>
+</ul>
+</div>
+</div>
+<% end %>
+
+
+<div class ="col-md-6">
 <h1>Tweet数：<strong><%= @tweets.count %></strong></h1>
 <table class= "table table-striped table-bordered table-hover ">
   <thead>
@@ -15,9 +51,11 @@
         <td><%= tweet.content %></td>
         <td><%= tweet.likes.count %></td>
         <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+        <!--<td><%= link_to 'Edit', edit_tweet_path(tweet) %></td> -->
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>

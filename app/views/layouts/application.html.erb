@@ -54,7 +54,7 @@
             <li><%= link_to "ログアウト", sign_out_path  %></li>
             <% else %>
             <li><%= link_to "Twitter", root_path %></li>
-            <li><%= link_to "サインイン", new_user_registration_path  %></li>
+            <li><%= link_to "アカウントを作成", new_user_registration_path  %></li>
             <li><%= link_to "ログイン", new_user_session_path  %></li>
             <% end %>
           </ul>
@@ -62,44 +62,17 @@
         </div>
       </div>
     </div>
-    <% if user_signed_in? %>
 
-<div class="col-lg-3">
-<div class="well sidebar-nav">
-<h3>User_info</h3>
-<ul class="nav nav-list">
-<li class="nav-header">
-<p>Logged in as <strong><%= current_user.email %></strong></p>
-<p>user_id:<strong><%= current_user.id %></strong></p>
-<p>user_name:<strong><%= current_user.name %></strong></p>
 
 </li>
 </ul>
 </div><!--/.well -->
-
-<%= form_for(@tweet) do |f| %>
-<div class="field">
-<%= f.label :tweet %></br>
-<%= f.text_area :content %>
-</div>
-
-<div class="actions">
-<%= f.submit %>
-
-</div>
-<% end %>
 </div><!--/span-->
 </div><!--/row-->
-  <% end %>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-
-    </div> <!-- /container -->
+ <!-- /container -->
+ <div class = "container">
+      <%= yield %>
+</div>
     <footer>
       <p> &copy;Cubic Toyoda 2016</p>
     </footer>

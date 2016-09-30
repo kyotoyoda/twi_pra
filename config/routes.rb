@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :tweets
   devise_for :users, :controllers => {
      :registrations => 'users/registrations',
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
      get "sign_in", :to => "tweets#show"
      get "sign_out", :to => "users/sessions#destroy"
    end
+
+ resources :users, :only => [:index, :show]
 
   get 'home/index'
 
