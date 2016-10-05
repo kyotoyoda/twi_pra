@@ -11,6 +11,18 @@ Rails.application.routes.draw do
      get "sign_out", :to => "users/sessions#destroy"
    end
 
+   resources :users do
+     member do
+       get :following, :followers
+     end
+   end
+
+   resources :users do
+     collection do
+       get :tigers
+     end
+   end
+
  resources :users, :only => [:index, :show]
 
   get 'home/index'
@@ -21,6 +33,9 @@ root to: "home#index"
 
 post 'like/:tweet_id' => 'likes#like', as:'like'
 delete 'unlike/:tweet_id' => 'likes#unlike', as:'unlike'
+
+resources :relationships, only: [:create, :destroy]
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
