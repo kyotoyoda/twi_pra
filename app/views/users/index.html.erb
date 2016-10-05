@@ -8,3 +8,11 @@
     </li>
   <% end %>
 </ul>
+
+<% @users.each do |user| %>
+ <% if user.image %>
+  <%= image_tag "/user_images/#{user.image}" %>
+  <% else %>
+  <%= image_tag "logo_cubic.png" %>
+  <% end %>
+ <% end %>

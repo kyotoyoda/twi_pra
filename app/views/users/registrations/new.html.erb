@@ -13,7 +13,10 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.file_field :image, class:"form-cont..." %>
+  <div class = "field">
+    <%= f.label :image %><br/>
+   <%= f.file_field :image %>
+ </div>
 
   <div class="field">
     <%= f.label :password %>
