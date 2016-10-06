@@ -1,3 +1,9 @@
 
 <% provide(:title, @user.name) %>
 <h1>My page (<%= @user.name %>)</h1>
+
+<%= render 'follow_form' if signed_in? %>
+
+<section class="stats">
+  <%= render 'stats' %>
+</section>

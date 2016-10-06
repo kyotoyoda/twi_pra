@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
   get 'home/show'
 
+  resources :users do
+    member do
+      get :followings, :followers
+    end
+  end
+
 root to: "home#index"
 
 post 'like/:tweet_id' => 'likes#like', as:'like'
