@@ -1,9 +1,18 @@
 
 <% provide(:title, @user.name) %>
-<h1>My page (<%= @user.name %>)</h1>
+<h1><%= @user.name %>のマイページ</h1>
 
-<%= render 'follow_form' if signed_in? %>
+
+<% unless current_user.id == @user.id %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+      <%= link_to "フォロー解除", relationships_path(user_id: @user.id), method: :delete %>
+    <% else %>
+      <%= link_to "フォローする", relationships_path(user_id: @user.id), method: :post %>
+    <% end %>
+  </div>
+<% end %>
 
 <section class="stats">
-  <%= render 'stats' %>
+  <%= render 'users/stats' %>
 </section>

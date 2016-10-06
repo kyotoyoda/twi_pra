@@ -9,17 +9,18 @@ end
   @user = User.find(params[:id])
   end
 
-
-  def followings
-      @user  = User.find(params[:id])
-      @users = @user.followings
-      render 'show_follow'
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
   end
 
   def followers
-    @user  = User.find(params[:id])
+    @title = "Followers"
+    @user = User.find(params[:id])
     @users = @user.followers
-    render 'show_follower'
+    render 'show_follow'
   end
 
 

@@ -19,9 +19,11 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get :followings, :followers
+      get :following, :followers
     end
   end
+
+    resource :relationships, only: [:create, :destroy]
 
 root to: "home#index"
 
