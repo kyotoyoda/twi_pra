@@ -10,7 +10,6 @@ end
   @tweets = Tweet.where(user_id: @user.id)
   end
 
-<<<<<<< HEAD
   def following
     @title = "Following"
     @user = User.find(params[:id])
@@ -27,7 +26,4 @@ end
 
 
 
-
-=======
->>>>>>> origin/master
 end

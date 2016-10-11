@@ -18,46 +18,6 @@ class RelationshipsController < ApplicationController
 end
 
 
-#  def create
-#    @user = User.find(params[:relationship][:following_id])
-#    current_user.follow(@user)
-#    redirect_to user_path(@user.id)
-#  end
 
-#  def destroy
-#    @user = Relationship.find(params[:id]).followed
-#    current_user.unfollow(@user)
-#    redirect_to user_path(@user.id)
-#  end
 
-#  def create
-#    @user = User.find(params[:relationship][:following_id])
-#    current_user.follow(@user)
-#    respond_to do |format|
-#      format.html { redirect_to @user }
-#      format.js
-#    end
-#  end
-
-#  def destroy
-#    @user = Relationship.find(params[:id]).following
-#    current_user.unfollow(@user)
-#    respond_to do |format|
-#      format.html { redirect_to @user }
-#      format.js
-#    end
-#  end
-=======
-    user = User.find(params[:following_id])
-    current_user.follow!(user)
-    redirect_to user
-  end
-
-  def destroy
-    user = Relationship.find(params[:id]).following
-    current_user.unfollow!(user)
-    redirect_to user
-  end
-
->>>>>>> origin/master
 end

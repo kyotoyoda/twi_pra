@@ -2,16 +2,8 @@
 
 one:
   follower_id: 1
-<<<<<<< HEAD
   following_id: 1
 
 two:
   follower_id: 1
   following_id: 1
-=======
-  followed_id: 1
-
-two:
-  follower_id: 1
-  followed_id: 1
->>>>>>> origin/master
