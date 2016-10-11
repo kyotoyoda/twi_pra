@@ -1,8 +1,8 @@
 <% @user = User.find(params[:id]) %>
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-    <%= @user.following.count %>
+    <strong id="followings" class="stat">
+    <%= @user.followings.count %>
     </strong>
     following
   </a>
