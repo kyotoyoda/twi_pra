@@ -1,9 +1,24 @@
-<% @user.following.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.name %> </td>
-  <td><%= link_to '詳細', user_path(user) %></td>
-</tr>
-
-</table>
-<% end %>
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1><%= @user.name %></h1>
+      <span><b>Tweets:</b> <%= @user.tweets.count %></span>
+    </section>
+    <section>
+      <%= render 'users/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users">
+        <% @users.each do |user| %>
+        <tr>
+          <li><%= user.name %></li>
+        </tr>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

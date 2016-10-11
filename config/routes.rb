@@ -17,17 +17,7 @@ Rails.application.routes.draw do
      end
    end
 
-   resources :users do
-     collection do
-       get :tigers
-     end
-   end
-
  resources :users, :only => [:index, :show]
-
-  get 'home/index'
-
-  get 'home/show'
 
   resources :users do
     member do

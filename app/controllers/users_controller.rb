@@ -6,21 +6,23 @@ def index
 end
 
   def show
+  user = current_user
   @user = User.find(params[:id])
-  @tweets = Tweet.where(user_id: @user.id)
+  @users = @user.followings
+  @tweets = @user.tweets
   end
 
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.following
+    @users = @user.followers
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followers
+    @users = @user.followings
     render 'show_follow'
   end
 
