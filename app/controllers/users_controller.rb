@@ -15,15 +15,19 @@ end
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.followers
+    @relationships = Relationship.all
+    @followings = @relationships.where(following_id: @user.id)
+    @users = User.all
     render 'show_follow'
   end
 
   def followers
     @title = "Followers"
     @user = User.find(params[:id])
-    @users = @user.followings
-    render 'show_follow'
+    @relationships = Relationship.all
+    @followers = @relationships.where(follower_id: @user.id)
+    @users = User.all
+    render 'show_follower'
   end
 
 

@@ -13,9 +13,9 @@
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users">
-        <% @users.each do |user| %>
+        <% @followings.each do |following| %> <%#リレーションショップテーブルの中で、フォローidがユーザーidと一致するものをとってくる %>
         <tr>
-          <li><%= user.name %></li>
+          <li><%= @users.find_by(id: following.follower_id).name %></li> <%# ユーザー全体の中でとってきた配列のフォロワーIDとIDと一致する名前を出力%>
         </tr>
       <% end %>
       </ul>

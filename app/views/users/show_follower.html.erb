@@ -1,9 +1,24 @@
-<% @user.followers.each do |user| %>
-<table>
-<tr>
-  <td>  <%= user.name %> </td>
-  <td><%= link_to '詳細', user_path(user) %></td>
-</tr>
-
-</table>
-<% end %>
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1><%= @user.name %></h1>
+      <span><b>Tweets:</b> <%= @user.tweets.count %></span>
+    </section>
+    <section>
+      <%= render 'users/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users">
+        <% @followers.each do |follower| %><%#リレーションショップテーブルの中で、フォローidがユーザーidと一致するものをとってくる %>
+        <tr>
+          <li><%= @users.find_by(id: follower.following_id).name %></li><%# ユーザー全体の中でとってきた配列のフォロワーIDとIDと一致する名前を出力%>
+        </tr>
+      <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
