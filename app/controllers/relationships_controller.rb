@@ -1,6 +1,7 @@
 class RelationshipsController < ApplicationController
 
   def create
+<<<<<<< HEAD
 	   user_id = params[:user_id]
 		if Relationship.create(following_id: current_user.id, follower_id: user_id)
 			redirect_to user_path(user_id), notice: "フォローしました"
@@ -46,4 +47,17 @@ end
 #      format.js
 #    end
 #  end
+=======
+    user = User.find(params[:following_id])
+    current_user.follow!(user)
+    redirect_to user
+  end
+
+  def destroy
+    user = Relationship.find(params[:id]).following
+    current_user.unfollow!(user)
+    redirect_to user
+  end
+
+>>>>>>> origin/master
 end
